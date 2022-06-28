@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import { ApolloClient, ApolloProvider, gql, InMemoryCache } from '@apollo/client';
+import './styles/normalize.css';
+import './styles/style.css';
+import App from './components/App';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { Query } from "@apollo/client/react/components";
 import GET_ALL_PRODUCTS from './query/product';
  
