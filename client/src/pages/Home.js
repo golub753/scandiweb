@@ -1,11 +1,17 @@
 import { Component } from "react"
+import Container from '../containers/Container';
+import { Main, Title } from './PagesComponents/PagesComponents';
 
 class Home extends Component {
     render() {
         return(
-            <div>
-                Home
-            </div>
+            <Main>
+                <Container>
+                    <Title>
+                        Home
+                    </Title>
+                </Container>
+            </Main>
         )
     }
 }

@@ -1,11 +1,17 @@
 import { Component } from "react"
+import Container from '../containers/Container';
+import { Main, Title } from './PagesComponents/PagesComponents';
 
 class Women extends Component {
     render() {
         return(
-            <div>
-                Women
-            </div>
+            <Main>
+                <Container>
+                    <Title>
+                        Women
+                    </Title>
+                </Container>
+            </Main>
         )
     }
 }

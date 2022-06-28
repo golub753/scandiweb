@@ -1,12 +1,22 @@
 import { Component } from 'react';
+import { Wrapper, FlexBlock } from './HeaderComponents/HeaderComponents';
 import Container from '../../containers/Container';
+import HeaderLinks from './HeaderLinks/HeaderLinks';
+import HeaderHome from './HeaderHome/HeaderHome';
+import HeaderActions from './HeaderActions/HeaderActions';
 
 class Header extends Component {
     render() {
         return(
-            <Container>
-                test
-            </Container>
+            <Wrapper>
+                <Container>
+                    <FlexBlock>
+                        <HeaderLinks/>
+                        <HeaderHome/>
+                        <HeaderActions/>
+                    </FlexBlock>
+                </Container>
+            </Wrapper>
         )
     }
 }

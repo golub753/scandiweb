@@ -1,11 +1,17 @@
 import { Component } from "react"
+import Container from '../containers/Container';
+import { Main, Title } from './PagesComponents/PagesComponents';
 
 class Kids extends Component {
     render() {
         return(
-            <div>
-                Kids
-            </div>
+            <Main>
+                <Container>
+                    <Title>
+                        Kids
+                    </Title>
+                </Container>
+            </Main>
         )
     }
 }

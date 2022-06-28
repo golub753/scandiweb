@@ -16,7 +16,16 @@ class App extends Component {
   }
   render() {
     return(
-      <Header/>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route path="/women" element={<Women/>}/>
+          <Route path="/men" element={<Men/>}/>
+          <Route path="/kids" element={<Kids/>}/>
+          <Route path="/cart" element={<Cart/>}/>
+        </Routes>
+      </Router>
     )
   }
 }
