@@ -8,16 +8,16 @@ class HeaderLinks extends Component {
         super(props)
         this.links = [
             {
-                text: "women",
-                link: "/women"
+                text: "all",
+                link: "/"
             },
             {
-                text: "men",
-                link: "/men"
+                text: "clothes",
+                link: "/clothes"
             },
             {
-                text: "kids",
-                link: "/kids"
+                text: "tech",
+                link: "/tech"
             }
         ]
     }

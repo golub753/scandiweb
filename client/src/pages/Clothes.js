@@ -2,13 +2,13 @@ import { Component } from "react"
 import Container from '../containers/Container';
 import { Main, Title } from './PagesComponents/PagesComponents';
 
-class Kids extends Component {
+class Clothes extends Component {
     render() {
         return(
             <Main>
                 <Container>
                     <Title>
-                        Kids
+                        Clothes
                     </Title>
                 </Container>
             </Main>
@@ -16,4 +16,4 @@ class Kids extends Component {
     }
 }
 
-export default Kids;
+export default Clothes;

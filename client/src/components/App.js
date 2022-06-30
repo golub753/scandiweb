@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import { addAllProductsAction } from '../store/productsReducer';
 import Header from "./Header/Header";
 import Home from '../pages/Home';
-import Women from '../pages/Women';
-import Men from '../pages/Men';
-import Kids from '../pages/Kids';
+import Clothes from '../pages/Clothes';
+import Tech from '../pages/Tech';
 import Cart from '../pages/Cart';
 import { fetchProducts } from '../asyncActions/products';
 import Loader from '../UI/Loader/Loader';
@@ -24,9 +23,9 @@ class App extends Component {
         <Header/>
         <Routes>
           <Route exact path="/" element={(this.props.products.products.length > 0) ? <Home products={this.props.products.products}/> : <Loader/>}/>
-          <Route path="/women" element={<Women/>}/>
-          <Route path="/men" element={<Men/>}/>
-          <Route path="/kids" element={<Kids/>}/>
+          <Route path="/" element={(this.props.products.products.length > 0) ? <Home products={this.props.products.products}/> : <Loader/>}/>
+          <Route path="/clothes" element={<Clothes/>}/>
+          <Route path="/tech" element={<Tech/>}/>
           <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>
