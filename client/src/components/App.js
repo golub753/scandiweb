@@ -9,6 +9,7 @@ import Men from '../pages/Men';
 import Kids from '../pages/Kids';
 import Cart from '../pages/Cart';
 import { fetchProducts } from '../asyncActions/products';
+import Loader from '../UI/Loader/Loader';
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class App extends Component {
       <Router>
         <Header/>
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/" element={(this.props.products.products.length > 0) ? <Home products={this.props.products.products}/> : <Loader/>}/>
           <Route path="/women" element={<Women/>}/>
           <Route path="/men" element={<Men/>}/>
           <Route path="/kids" element={<Kids/>}/>
@@ -35,18 +36,20 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProduct: () => dispatch(fetchProducts(`{
-      categories {
-        name, products {
-          name, inStock, brand, id, gallery, prices {
-            amount
-            currency {
-              label, symbol
+    fetchProduct: () => setTimeout(() => {
+      dispatch(fetchProducts(`{
+        categories {
+          name, products {
+            id, name, inStock, brand, category, gallery, prices {
+              amount
+              currency {
+                label, symbol
+              }
             }
           }
         }
-      }
-    }`, addAllProductsAction))
+      }`, addAllProductsAction))
+    }, 300)
   }
 }
 
