@@ -1,5 +1,5 @@
 const defaultState = {
-    products: []
+    allProducts: []
 }
 
 const ADD_ALL_PRODUCTS = 'ADD_ALL_PRODUCTS';
@@ -8,7 +8,7 @@ const UPDATE_PRODUCTS = 'UPDATE_PRODUCTS';
 export const productsReducer = (state = defaultState, action) => {
     switch (action.type) {
         case ADD_ALL_PRODUCTS:
-            return {...state, products: [...state.products, ...action.payload]}
+            return {...state, allProducts: [...state.allProducts, ...action.payload]}
         case UPDATE_PRODUCTS:
             return state
         default:

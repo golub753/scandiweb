@@ -6,20 +6,7 @@ import { Ul, Nav } from "../HeaderComponents/HeaderComponents";
 class HeaderLinks extends Component {
     constructor(props) {
         super(props)
-        this.links = [
-            {
-                text: "all",
-                link: "/"
-            },
-            {
-                text: "clothes",
-                link: "/clothes"
-            },
-            {
-                text: "tech",
-                link: "/tech"
-            }
-        ]
+        this.links = this.props.links.map((item, id) => item.name);
     }
     render() {
         return(
@@ -28,8 +15,8 @@ class HeaderLinks extends Component {
                     {this.links.map((link, id) => {
                         return (
                             <HeaderLink
-                                text={link.text}
-                                link={link.link}
+                                text={link}
+                                link={`/${link}`}
                                 key={id}
                             />
                         )

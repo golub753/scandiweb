@@ -6,12 +6,15 @@ import HeaderHome from './HeaderHome/HeaderHome';
 import HeaderActions from './HeaderActions/HeaderActions';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
         return(
             <Wrapper>
                 <Container>
                     <FlexBlock>
-                        <HeaderLinks/>
+                        <HeaderLinks links={this.props.links}/>
                         <HeaderHome/>
                         <HeaderActions/>
                     </FlexBlock>

@@ -1,4 +1,4 @@
-export const fetchProducts = (query, action) => {
+export const fetchData = (query, action) => {
     return async dispatch => {
         await fetch('http://localhost:4000/graphql', {
             method: "POST",
