@@ -16,7 +16,7 @@ class Header extends Component {
                     <FlexBlock>
                         <HeaderLinks links={this.props.links}/>
                         <HeaderHome/>
-                        <HeaderActions/>
+                        <HeaderActions currencies={this.props.currency}/>
                     </FlexBlock>
                 </Container>
             </Wrapper>

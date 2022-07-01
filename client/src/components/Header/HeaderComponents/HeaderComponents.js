@@ -81,3 +81,24 @@ export const Actions = styled.div`
     justify-content: flex-end;
     grid-column-gap: 22px;
 `
+
+export const CurrencyBlock = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-column-gap: 10px;
+    cursor: pointer;
+`
+
+export const Currency = styled.div`
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #1D1F22;
+    margin-bottom: 3px;
+`
+
+export const Arrow = styled.img`
+    width: 9px;
+    height: fit-content;
+`
