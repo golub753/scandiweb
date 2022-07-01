@@ -7,7 +7,7 @@ const GET_LINKS = "GET_LINKS";
 export const linksReducer = (state = defaultState, action) => {
     switch (action.type) {
         case GET_LINKS:
-            return {...state, links: [...state.links, ...action.payload]}
+            return {...state, links: [...state.links, ...action.payload.categories]}
         default:
             return state;
     }

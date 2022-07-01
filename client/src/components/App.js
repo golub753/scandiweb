@@ -38,20 +38,26 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     //Get products array
-    fetchProduct: () => setTimeout(() => {
+    fetchProduct: () => 
       dispatch(fetchData(`{
-        categories {
-          name, products {
-            id, name, inStock, brand, category, gallery, prices {
+        category(input: { title: "all" }) {
+          products {
+            id
+            name
+            inStock
+            brand
+            category
+            gallery
+            prices {
               amount
               currency {
-                label, symbol
+                label
+                symbol
               }
             }
           }
         }
-      }`, addAllProductsAction))
-    }, 300),
+      }`, addAllProductsAction)),
     //Get category name in array
     getLinks: () => {
       dispatch(fetchData(`{
@@ -60,7 +66,12 @@ const mapDispatchToProps = (dispatch) => {
         }
       }`
       , getLinksAction))
-    }
+    },
+    // getClothes: () => {
+    //   dispatch(fetchData(`{
+
+    //   }`))
+    // }
   }
 }
 

@@ -5,7 +5,7 @@ import { Wrapper } from "./ProductsComponents/ProductsComponents";
 class ProductsBlocks extends Component {
     constructor(props) {
         super(props)
-        this.products = this.props.products[0].products;
+        this.products = this.props.products;
     }
     render() { 
         return (

@@ -6,6 +6,6 @@ export const fetchData = (query, action) => {
             body: JSON.stringify({ query: query, variables: {} }),
           })    
           .then(response => response.json())
-          .then(json => dispatch(action(json.data.categories)))
+          .then(json => dispatch(action(json.data)))
     }
 }
