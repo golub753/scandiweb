@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Block, BlockWrapper ,Image, Info, Name, Price } from '../ProductsComponents/ProductsComponents';
+import { Block, BlockWrapper ,Image, Info, Name, Price, Button, Cart } from '../ProductsComponents/ProductsComponents';
 
 class ProductsBlock extends Component {
     constructor(props) {
@@ -18,6 +18,9 @@ class ProductsBlock extends Component {
                             {this.props.prices[0].currency.symbol}{this.props.prices[0].amount}
                         </Price>
                     </Info>
+                    <Button data-stock={this.props.inStock}>
+                        <Cart src="./images/icons/cart.svg" alt="cart"/>
+                    </Button>
                 </BlockWrapper>
             </Block>
         );

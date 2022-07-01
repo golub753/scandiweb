@@ -14,6 +14,9 @@ export const Block = styled.div`
     transition: .3s;
     :hover {
         box-shadow: ${props => props['data-stock'] ? '0px 4px 35px rgba(168, 172, 176, 0.19)' : 'none'};
+        Button {
+            opacity: 1;
+        }
     }
     ::after {
         content: '';
@@ -70,4 +73,27 @@ export const Price = styled.div`
     font-size: 18px;
     line-height: 160%;
     color: #1D1F22;
+`
+
+export const Button = styled.button`
+    width: 52px;
+    height: 52px;
+    display: ${props => props['data-stock'] ? 'flex' : 'none'};
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    transition: .3s;
+    background: #5ECE7B;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    bottom: 72px;
+    right: 31px;
+`
+
+export const Cart = styled.img`
+    width: 24px;
+    height: fit-content;
 `
