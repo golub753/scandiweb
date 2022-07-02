@@ -1,16 +1,22 @@
 import { Component } from "react";
 import ProductsBlock from "./ProductsBlock/ProductsBlock";
 import { Wrapper } from "./ProductsComponents/ProductsComponents";
+import { connect } from "react-redux";
 
 class ProductsBlocks extends Component {
     constructor(props) {
         super(props)
-        this.products = this.props.products;
     }
     render() { 
+        const products = (this.props.category === 'allProducts')
+        ? this.props.allProducts
+        : (this.props.category === "clothes")
+        ? this.props.clothes 
+        : (this.props.category === "tech") 
+        ? this.props.tech : false
         return (
             <Wrapper>
-                {this.products.map((product, id) => {
+                {products.map((product, id) => {
                     return (
                         <ProductsBlock
                             key={id}
@@ -29,5 +35,11 @@ class ProductsBlocks extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => ({ 
+    ...state.allProducts, 
+    ...state.clothes, 
+    ...state.tech
+  })
  
-export default ProductsBlocks;
+export default connect(mapStateToProps)(ProductsBlocks);

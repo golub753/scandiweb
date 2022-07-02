@@ -14,14 +14,13 @@ class Header extends Component {
             <Wrapper>
                 <Container>
                     <FlexBlock>
-                        <HeaderLinks links={this.props.links}/>
+                        <HeaderLinks/>
                         <HeaderHome/>
-                        <HeaderActions currencies={this.props.currency}/>
+                        <HeaderActions/>
                     </FlexBlock>
                 </Container>
             </Wrapper>
         )
     }
 }
-
 export default Header;

@@ -29,12 +29,12 @@ class App extends Component {
   render() {
     return(
       <Router>
-        {(this.props.links.links.length > 0) ? <Header links={this.props.links.links} currency={this.props.currency.currency.currencies}/> : false}
+        <Header/>
         <Routes>
-          <Route exact path="/" element={(this.props.allProducts.allProducts.length > 0) ? <Home products={this.props.allProducts.allProducts}/> : <Loader/>}/>
-          <Route path="/all" element={(this.props.allProducts.allProducts.length > 0) ? <Home products={this.props.allProducts.allProducts}/> : <Loader/>}/>
-          <Route path="/clothes" element={(this.props.clothes.clothes.length > 0) ? <Clothes products={this.props.clothes.clothes}/> : <Loader/>}/>
-          <Route path="/tech" element={(this.props.tech.tech.length > 0) ? <Tech products={this.props.tech.tech}/> : <Loader/>}/>
+          <Route exact path="/" element={<Home category="allProducts"/>}/>
+          <Route path="/all" element={<Home category="allProducts"/>}/>
+          <Route path="/clothes" element={<Clothes category="clothes"/>}/>
+          <Route path="/tech" element={<Tech category="tech"/>}/>
           <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>
@@ -66,13 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (state) => ({ 
-  allProducts: state.allProducts, 
-  links: state.links, 
-  clothes: state.clothes, 
-  tech: state.tech, 
-  currency: state.currency 
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

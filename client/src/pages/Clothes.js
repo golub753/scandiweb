@@ -4,14 +4,18 @@ import { Main, Title } from './PagesComponents/PagesComponents';
 import ProductsBlocks from "../components/ProductsBlocks/ProductsBlocks";
 
 class Clothes extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
+        const category = this.props.category;
         return(
             <Main>
                 <Container>
                     <Title>
                         Clothes
                     </Title>
-                    <ProductsBlocks products={this.props.products}/>
+                    <ProductsBlocks category={category}/>
                 </Container>
             </Main>
         )

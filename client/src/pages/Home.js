@@ -8,13 +8,14 @@ class Home extends Component {
         super(props)
     }
     render() {
+        const category = this.props.category;
         return(
             <Main>
                 <Container>
                     <Title>
                         Home
                     </Title>
-                    <ProductsBlocks products={this.props.products}/>
+                    <ProductsBlocks category={category}/>
                 </Container>
             </Main>
         )
