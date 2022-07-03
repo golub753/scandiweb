@@ -5,7 +5,7 @@ class HeaderBug extends Component {
     render() { 
         return (
             <PathImg to="/cart">
-                <Icon src='./images/icons/bug.svg' alt='bug'/>
+                <Icon src='../images/icons/bug.svg' alt='bug'/>
             </PathImg>
         );
     }

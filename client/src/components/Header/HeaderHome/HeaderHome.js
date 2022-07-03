@@ -5,7 +5,7 @@ class HeaderHome extends Component{
     render() {
         return(
             <PathImg to="/">
-                <Img src="./images/icons/logo.svg" alt="logo"/>
+                <Img src="../images/icons/logo.svg" alt="logo"/>
             </PathImg>
         )
     }

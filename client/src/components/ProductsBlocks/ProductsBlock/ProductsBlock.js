@@ -9,6 +9,7 @@ class ProductsBlock extends Component {
     render() { 
         const initialCurrency = this.props.initialCurrency;
         const findCurrency = this.props.prices.find(item => item.currency.symbol === initialCurrency.symbol)
+        const id = this.props.id;
         return (
             <Block data-stock={this.props.inStock}>
                 <BlockWrapper>
@@ -21,7 +22,7 @@ class ProductsBlock extends Component {
                             {initialCurrency.symbol}{(findCurrency) ? findCurrency.amount : false}
                         </Price>
                     </Info>
-                    <Button data-stock={this.props.inStock}>
+                    <Button data-stock={this.props.inStock} to={`/product/${this.props.id}`}>
                         <Cart src="./images/icons/cart.svg" alt="cart"/>
                     </Button>
                 </BlockWrapper>

@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, matchRoutes} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { products, links, clothes, tech, currency } from "../query/query";
 import { addAllProductsAction } from '../store/productsReducer';
@@ -13,6 +13,7 @@ import Home from '../pages/Home';
 import Clothes from '../pages/Clothes';
 import Tech from '../pages/Tech';
 import Cart from '../pages/Cart';
+import Product from "./Product/Product";
 import { fetchData } from '../asyncActions/asyncFunction';
 import Loader from '../UI/Loader/Loader';
 
@@ -37,6 +38,7 @@ class App extends Component {
           <Route path="/all" element={<Home category="allProducts"/>}/>
           <Route path="/clothes" element={<Clothes category="clothes"/>}/>
           <Route path="/tech" element={<Tech category="tech"/>}/>
+          <Route path="/product/:productId" element={<Product/>} /> 
           <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>

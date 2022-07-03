@@ -31,7 +31,7 @@ class HeaderActions extends Component {
                         <Currency>
                             {(initialCurrency) ? initialCurrency.symbol : false}
                         </Currency>
-                        <Arrow src="./images/icons/arrow.svg" alt="arrow" isOpen={this.state.open}/>
+                        <Arrow src="../images/icons/arrow.svg" alt="arrow" isOpen={this.state.open}/>
                     </CurrencyTrigger>
                     <Currencies isOpen={this.state.open}>
                         {(currency.currencies) ? currency.currencies.map((item, id) => {

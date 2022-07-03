@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink as Link } from "react-router-dom";
 
 export const Wrapper = styled.div`
     display: grid;
@@ -14,7 +15,7 @@ export const Block = styled.div`
     transition: .3s;
     :hover {
         box-shadow: ${props => props['data-stock'] ? '0px 4px 35px rgba(168, 172, 176, 0.19)' : 'none'};
-        Button {
+        A {
             opacity: 1;
         }
     }
@@ -75,7 +76,7 @@ export const Price = styled.div`
     color: #1D1F22;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
     width: 52px;
     height: 52px;
     display: ${props => props['data-stock'] ? 'flex' : 'none'};
