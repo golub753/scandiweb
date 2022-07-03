@@ -83,11 +83,15 @@ export const Actions = styled.div`
 `
 
 export const CurrencyBlock = styled.div`
+    cursor: pointer;
+    position: relative;
+`
+
+export const CurrencyTrigger = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
     grid-column-gap: 10px;
-    cursor: pointer;
 `
 
 export const Currency = styled.div`
@@ -101,4 +105,37 @@ export const Currency = styled.div`
 export const Arrow = styled.img`
     width: 9px;
     height: fit-content;
+    transition: .3s;
+    transform: ${props => props['isOpen'] ? 'rotate(180deg)' : ''}
+`
+
+export const Currencies = styled.div`
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    width: fit-content;
+    z-index: 20;
+    display: ${props => props['isOpen'] ? 'block' : 'none'}
+`
+
+export const CurrenciesBlock = styled.div`
+    background: #FFFFFF;
+    transition: .3s;
+    :hover {
+        background: #EEEEEE;
+    }
+`
+
+export const CurrenciesBlockWrapper = styled.div`
+    padding: 8px 38px 8px 20px;
+    display: flex;
+    align-items: center;
+    grid-column-gap: 5px;
+`
+
+export const CurrenciesText = styled.div`
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #1D1F22;
 `

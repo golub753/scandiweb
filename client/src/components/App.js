@@ -7,6 +7,7 @@ import { getLinksAction } from '../store/linksReducer';
 import { getAllClothesAction } from '../store/clothesReducer';
 import { getAllTechAction } from '../store/techReducer';
 import { getAllCurrencyAction } from "../store/currencyReducer";
+import { getInitialCurrencyAction } from '../store/initialCurrencyReducer';
 import Header from "./Header/Header";
 import Home from '../pages/Home';
 import Clothes from '../pages/Clothes';
@@ -25,6 +26,7 @@ class App extends Component {
     this.props.getClothes();
     this.props.getTech();
     this.props.getCurrency();
+    this.props.getInitialCurrency();
   }
   render() {
     return(
@@ -62,6 +64,10 @@ const mapDispatchToProps = (dispatch) => {
     //Get label and currency for prices
     getCurrency: () => {
       dispatch(fetchData(currency, getAllCurrencyAction))
+    },
+    //Get initial currency
+    getInitialCurrency: () => {
+      dispatch(fetchData(currency, getInitialCurrencyAction))
     }
   }
 }
