@@ -1,11 +1,14 @@
 import { Component } from "react";
 import { Block, BlockWrapper ,Image, Info, Name, Price, Button, Cart } from '../ProductsComponents/ProductsComponents';
+import { connect } from "react-redux";
 
 class ProductsBlock extends Component {
     constructor(props) {
         super(props)
     }
     render() { 
+        const initialCurrency = this.props.initialCurrency;
+        const findCurrency = this.props.prices.find(item => item.currency.symbol === initialCurrency.symbol)
         return (
             <Block data-stock={this.props.inStock}>
                 <BlockWrapper>
@@ -15,7 +18,7 @@ class ProductsBlock extends Component {
                             {this.props.name}
                         </Name>
                         <Price>
-                            {this.props.prices[0].currency.symbol}{this.props.prices[0].amount}
+                            {initialCurrency.symbol}{(findCurrency) ? findCurrency.amount : false}
                         </Price>
                     </Info>
                     <Button data-stock={this.props.inStock}>
@@ -26,5 +29,11 @@ class ProductsBlock extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => { 
+    return {
+        ...state.initialCurrency
+    }
+}
  
-export default ProductsBlock;
+export default connect(mapStateToProps)(ProductsBlock);
