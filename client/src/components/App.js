@@ -20,6 +20,10 @@ import Loader from '../UI/Loader/Loader';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      product: null
+    }
+    this.getProduct = this.getProduct.bind(this);
   }
   componentDidMount() {
     this.props.fetchProduct();
@@ -29,16 +33,21 @@ class App extends Component {
     this.props.getCurrency();
     this.props.getInitialCurrency();
   }
+  getProduct(product) {
+    this.setState({
+      product: product
+    })
+  }
   render() {
     return(
       <Router>
         <Header/>
         <Routes>
-          <Route exact path="/" element={<Home category="allProducts"/>}/>
-          <Route path="/all" element={<Home category="allProducts"/>}/>
-          <Route path="/clothes" element={<Clothes category="clothes"/>}/>
-          <Route path="/tech" element={<Tech category="tech"/>}/>
-          <Route path="/product/:productId" element={<Product/>} /> 
+          <Route exact path="/" element={<Home category="allProducts" getProduct={this.getProduct}/>}/>
+          <Route path="/all" element={<Home category="allProducts" getProduct={this.getProduct}/>}/>
+          <Route path="/clothes" element={<Clothes category="clothes" getProduct={this.getProduct}/>}/>
+          <Route path="/tech" element={<Tech category="tech" getProduct={this.getProduct}/>}/>
+          <Route path="/product/:productId" element={<Product product={this.state.product}/>} /> 
           <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>

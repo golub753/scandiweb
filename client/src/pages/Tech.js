@@ -15,7 +15,7 @@ class Tech extends Component {
                     <Title>
                         Tech
                     </Title>
-                    <ProductsBlocks category={category}/>
+                    <ProductsBlocks category={category} getProduct={this.props.getProduct}/>
                 </Container>
             </Main>
         )

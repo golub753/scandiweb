@@ -15,7 +15,7 @@ class Home extends Component {
                     <Title>
                         Home
                     </Title>
-                    <ProductsBlocks category={category}/>
+                    <ProductsBlocks category={category} getProduct={this.props.getProduct}/>
                 </Container>
             </Main>
         )
