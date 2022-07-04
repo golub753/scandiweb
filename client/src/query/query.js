@@ -15,6 +15,11 @@ export const products = `{
           }
         }
         description
+        attributes {
+          name, items {
+            value, displayValue
+          }
+        }
       }
     }
   }`
@@ -42,6 +47,11 @@ export const clothes = `{
           }
         }
         description
+        attributes {
+          name, items {
+            value, displayValue
+          }
+        }
       }
     }
   }`
@@ -63,6 +73,11 @@ export const tech = `{
           }
         }
         description
+        attributes {
+          name, items {
+            value, displayValue
+          }
+        }
       }
     }
   }`

@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: null
+      product: false
     }
     this.getProduct = this.getProduct.bind(this);
   }
@@ -44,11 +44,11 @@ class App extends Component {
         <Header/>
         <Routes>
           <Route exact path="/" element={<Home category="allProducts" getProduct={this.getProduct}/>}/>
-          <Route path="/all" element={<Home category="allProducts" getProduct={this.getProduct}/>}/>
-          <Route path="/clothes" element={<Clothes category="clothes" getProduct={this.getProduct}/>}/>
-          <Route path="/tech" element={<Tech category="tech" getProduct={this.getProduct}/>}/>
-          <Route path="/product/:productId" element={<Product product={this.state.product}/>} /> 
-          <Route path="/cart" element={<Cart/>}/>
+          <Route path="all" element={<Home category="allProducts" getProduct={this.getProduct}/>}/>
+          <Route path="clothes" element={<Clothes category="clothes" getProduct={this.getProduct}/>}/>
+          <Route path="tech" element={<Tech category="tech" getProduct={this.getProduct}/>}/>
+          <Route path="product/:productId" element={<Product product={this.state.product}/>} /> 
+          <Route path="cart" element={<Cart/>}/>
         </Routes>
       </Router>
     )
