@@ -21,7 +21,7 @@ class ProductsBlock extends Component {
                             {initialCurrency.symbol}{(findCurrency) ? findCurrency.amount : false}
                         </Price>
                     </Info>
-                    <Button data-stock={this.props.inStock} to={`/product/${this.props.id}`} onClick={() => this.props.getProduct()}>
+                    <Button data-stock={this.props.inStock} to={this.props.id}>
                         <Cart src="./images/icons/cart.svg" alt="cart"/>
                     </Button>
                 </BlockWrapper>

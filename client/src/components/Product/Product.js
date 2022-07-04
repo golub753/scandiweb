@@ -3,30 +3,28 @@ import Container from '../../containers/Container';
 import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Cost, Checks, Button, Description } from "./ProductComponents/ProductComponents";
 import ProductVarient from "./ProductVarient/ProductVarient";
 import { connect } from 'react-redux';
+import ProductCost from "./ProductCost/ProductCost";
 
 class Product extends Component {
     constructor(props) {
         super(props);
-        this.product = this.props.product;
     }
     render() {
-        const initialCurrency = this.props.initialCurrency
-        const findCurrency = this.product.prices.find(item => item.currency.label === initialCurrency.label)
-        console.log(this.product);
+        const id = window.location.pathname.split('/').pop()
+        const product = this.props.allProducts.find(item => item.id === id);
         return (
             <ProductWrapper>
                 <Container>
-
                     <Wrapper>
-                        <Image src={this.product.gallery[0]}/>
+                        <Image src={product.gallery[0]}/>
                         <Info>
                             <Brand>
-                                {this.product.brand}
+                                {product.brand}
                             </Brand>
                             <Name>
-                                {this.product.name}
+                                {product.name}
                             </Name>
-                            {this.product.attributes.map((item, id) => {
+                            {product.attributes.map((item, id) => {
                                 return (
                                     <div key={id}>
                                     <Title>
@@ -42,15 +40,10 @@ class Product extends Component {
                                     </div>
                                 )
                             })}
-                            <Title>
-                                Price:
-                            </Title>
-                            <Cost>
-                            {initialCurrency.symbol}{findCurrency.amount}
-                            </Cost>
+                            <ProductCost product={product}/>
                             <Button>ADD TO CART</Button>
                             <Description>
-                                {this.product.description}
+                                {product.description}
                             </Description>
                         </Info>
                     </Wrapper>
@@ -63,8 +56,8 @@ class Product extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state.allProducts,
-        ...state.initialCurrency  
+        ...state.initialCurrency,
+        ...state.allProducts
     }
 }
 

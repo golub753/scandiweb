@@ -28,7 +28,6 @@ class ProductsBlocks extends Component {
                             inStock={product.inStock}
                             mainImage={product.gallery[0]}
                             prices={product.prices}
-                            getProduct={() => this.props.getProduct(product)}
                         />
                     )
                 })}
