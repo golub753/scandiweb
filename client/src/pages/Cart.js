@@ -6,15 +6,16 @@ import { connect } from "react-redux";
 
 class Cart extends Component {
     render() {
+        const orders = this.props.orders;
         return(
             <Main>
                 <Container>
                     <Title>
                         Cart
                     </Title>
-                    {(this.props.orders.length > 0) ? 
+                    {(orders.length > 0) ? 
                     <Orders>
-                        {this.props.orders.map((item, id) => {
+                        {orders.map((item, id) => {
                             return (
                                 <Order 
                                     key={id}
