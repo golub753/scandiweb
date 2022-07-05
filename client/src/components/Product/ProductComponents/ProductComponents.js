@@ -62,11 +62,13 @@ export const Check = styled.div`
 `
 
 export const Label = styled.label`
+    position: relative;
+    user-select: none;
     width: 63px;
     height: 45px;
     border: 1px solid #1D1F22;
     cursor: pointer;
-    background: ${props => props['isActive'] ? '#1D1F22' : 'transparent'};
+    background: transparent;
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
@@ -76,11 +78,12 @@ export const Label = styled.label`
     align-items: center;
     justify-content: center;
     letter-spacing: 0.05em;
-    color: ${props => props['isActive'] ? '#FFFFFF' : '#1D1F22'};
+    color: #1D1F22;
     transition: .3s;
 `
 
 export const LabelColor = styled.label`
+    user-select: none;
     width: 32px;
     height: 32px;
     border: none;
@@ -103,7 +106,20 @@ export const LabelColor = styled.label`
 `
 
 export const Input = styled.input`
-    display: none;
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    :checked+Label {
+        background: #1D1F22;
+        color: #FFFFFF;
+    }
 `
 
 export const Checks = styled.div`

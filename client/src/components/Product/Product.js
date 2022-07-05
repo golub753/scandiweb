@@ -28,16 +28,16 @@ class Product extends Component {
                             <Name>
                                 {product.name}
                             </Name>
-                            {product.attributes.map((item, id) => {
+                            {product.attributes.map((item, key) => {
                                 return (
-                                    <div key={id}>
+                                    <div key={key}>
                                     <Title>
                                         {item.name}:
                                     </Title>
                                     <Checks>
-                                        {item.items.map((item, id) => {
+                                        {item.items.map((val, id) => {
                                             return (
-                                                <ProductVarient isAction={(id === 0) ? true : false} key={id} displayValue={item.displayValue} value={item.value}/>
+                                                <ProductVarient index={id} key={id} name={product.name} displayValue={val.displayValue} value={val.value} check={(id === 0) ? true: false} title={item.name}/>
                                             )
                                         })}
                                     </Checks>
