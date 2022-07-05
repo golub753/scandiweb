@@ -82,29 +82,6 @@ export const Label = styled.label`
     transition: .3s;
 `
 
-export const LabelColor = styled.label`
-    user-select: none;
-    width: 32px;
-    height: 32px;
-    border: none;
-    display: block;
-    cursor: pointer;
-    position: relative;
-    ::after {
-        position: absolute;
-        content: '';
-        width: 36px;
-        height: 36px;
-        top: -3px;
-        right: -2px;
-        left: -3px;
-        bottom: -2px;
-        display: ${props => props['isActive'] ? 'block' : 'none'};
-        border: 1px solid #5ECE7B;
-        transition: .3s;
-    }
-`
-
 export const Input = styled.input`
     opacity: 0;
     z-index: -1;
@@ -120,6 +97,43 @@ export const Input = styled.input`
         background: #1D1F22;
         color: #FFFFFF;
     }
+`
+
+export const InputColor = styled.input`
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    :checked+Label {
+        ::after {
+        position: absolute;
+        content: '';
+        width: 36px;
+        height: 36px;
+        top: -3px;
+        right: -2px;
+        left: -3px;
+        bottom: -2px;
+        display: block;
+        border: 1px solid ${props => props.bg};
+        transition: .3s;
+    }
+    }   
+`
+
+export const LabelColor = styled.label`
+    width: 32px;
+    height: 32px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    position: relative;
 `
 
 export const Checks = styled.div`
