@@ -62,6 +62,27 @@ export const Path = styled(Link)`
 
 export const PathImg = styled(Link)`
     text-decoration: none;
+    position: relative;
+`
+
+export const OrdersLength = styled.div`
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: -11px;
+        right: -12px;
+        background: #1D1F22;
+        border-radius: 60px;
+        font-family: 'Roboto';
+        font-weight: 700;
+        padding: 3px;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
 `
 
 export const Img = styled.img`

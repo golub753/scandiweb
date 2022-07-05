@@ -4,10 +4,14 @@ import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Cost, Checks,
 import ProductVarient from "./ProductVarient/ProductVarient";
 import { connect } from 'react-redux';
 import ProductCost from "./ProductCost/ProductCost";
+import { addOrderAction } from "../../store/ordersReducer";
 
 class Product extends Component {
     constructor(props) {
         super(props);
+    }
+    addOrder(product) {
+        this.props.addOrder(product)
     }
     render() {
         const id = window.location.pathname.split('/').pop()
@@ -41,7 +45,7 @@ class Product extends Component {
                                 )
                             })}
                             <ProductCost product={product}/>
-                            <Button>ADD TO CART</Button>
+                            <Button onClick={() => this.addOrder({id: product.id, name: product.name, brand: product.brand, photo: product.gallery[0], attributes: product.attributes, prices: product.prices, counter: 1})}>ADD TO CART</Button>
                             <Description>
                                 {product.description}
                             </Description>
@@ -56,9 +60,15 @@ class Product extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state.initialCurrency,
-        ...state.allProducts
+        ...state.allProducts,
+        ...state.orders
     }
 }
 
-export default connect(mapStateToProps)(Product);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addOrder: (product) => dispatch(addOrderAction(product))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

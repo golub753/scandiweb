@@ -7,6 +7,7 @@ import { clothesReducer } from './clothesReducer';
 import { techReducer } from './techReducer';
 import { currencyReducer } from './currencyReducer';
 import { initialCurrencyReducer } from './initialCurrencyReducer';
+import { ordersReducer } from './ordersReducer';
 
 const rootReducers = combineReducers({
     allProducts: productsReducer,
@@ -14,7 +15,8 @@ const rootReducers = combineReducers({
     clothes: clothesReducer,
     tech: techReducer,
     currency: currencyReducer,
-    initialCurrency: initialCurrencyReducer
+    initialCurrency: initialCurrencyReducer,
+    orders: ordersReducer
 })
 
 export const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))
