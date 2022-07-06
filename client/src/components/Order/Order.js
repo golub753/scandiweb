@@ -5,6 +5,7 @@ import { incrementAction, decrementAction } from "../../store/ordersReducer";
 
 class Order extends Component {
     render() { 
+        console.log(this.props);
         const item = this.props.item;
         const initialCurrency = this.props.initialCurrency;
         const findCurrency = this.props.item.prices.find(item => item.currency.symbol === initialCurrency.symbol);

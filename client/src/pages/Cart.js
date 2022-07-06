@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 class Cart extends Component {
     render() {
         const orders = this.props.orders;
+        console.log(orders);
         return(
             <Main>
                 <Container>
