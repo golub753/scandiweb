@@ -50,7 +50,7 @@ export const Preview = styled.div`
 export const Img = styled.img`
     width: 100%;
     height: 288px;
-    object-fit: cover;
+    object-fit: contain;
 `
 
 export const Controller = styled.div`

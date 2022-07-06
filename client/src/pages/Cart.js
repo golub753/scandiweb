@@ -6,15 +6,15 @@ import { connect } from "react-redux";
 
 class Cart extends Component {
     render() {
-        const orders = this.props.orders;
-        console.log(orders);
+        const orders = this.props.orders.orders;
+        const counter = this.props.orders.counter > 0;
         return(
             <Main>
                 <Container>
                     <Title>
                         Cart
                     </Title>
-                    {(orders.length > 0) ? 
+                    {counter ? 
                     <Orders>
                         {orders.map((item, id) => {
                             return (
@@ -24,7 +24,10 @@ class Cart extends Component {
                                 />
                             )
                         })}
-                    </Orders> : <p>No orders, please, choose product in catalog.</p>}
+                    </Orders>
+                    : 
+                    <p>No orders, please, choose product in catalog.</p>
+                    }
                 </Container>
             </Main>
         )
@@ -33,7 +36,7 @@ class Cart extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        ...state.orders
+        orders: state.orders
     }
 }
 
