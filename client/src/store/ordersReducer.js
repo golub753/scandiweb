@@ -1,6 +1,6 @@
 const defaultState = {
-    orders: [],
-    counter: 0
+    orders: JSON.parse(localStorage.getItem('state')) ? JSON.parse(localStorage.getItem('state')).orders : [],
+    counter: JSON.parse(localStorage.getItem('state')) ? JSON.parse(localStorage.getItem('state')).counter : 0
 }
 
 const ADD_ORDER = 'ADD_ORDER';
@@ -14,8 +14,10 @@ export const ordersReducer = (state = defaultState, action) => {
             state.counter++;
             if (inBasket) {
                 inBasket.counter++;
+                localStorage.setItem('state', JSON.stringify({...state, counter: state.counter}));
                 return {...state, counter: state.counter};
             } else {
+                localStorage.setItem('state', JSON.stringify({...state, orders: [...state.orders, action.payload], counter: state.counter}));
                 return {...state, orders: [...state.orders, action.payload], counter: state.counter}
             }
         }
@@ -23,6 +25,7 @@ export const ordersReducer = (state = defaultState, action) => {
             const inBasket = state.orders.find(order => (order.id === action.payload.id));
             inBasket.counter++;
             state.counter++;
+            localStorage.setItem('state', JSON.stringify({...state, orders: [...state.orders], counter: state.counter}));
             return {...state, orders: [...state.orders], counter: state.counter};
         }  
         case DECREMENT: {
@@ -31,8 +34,10 @@ export const ordersReducer = (state = defaultState, action) => {
             state.counter--;
             if (inBasket.counter === 0) {
                 const newOrders = state.orders.filter(order => !order.counter <= 0);
+                localStorage.setItem('state', JSON.stringify({...state, orders: [...newOrders], counter: state.counter}));
                 return {...state, orders: [...newOrders], counter: state.counter};
             }
+            localStorage.setItem('state', JSON.stringify({...state, orders: [...state.orders], counter: state.counter}));
             return {...state, orders: [...state.orders], counter: state.counter};
         }
         default:

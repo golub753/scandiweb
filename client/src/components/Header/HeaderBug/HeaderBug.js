@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class HeaderBug extends Component {
     render() { 
-        const counter = this.props.orders.reduce((sum, item) => sum += item.counter, 0);
+        const counter = JSON.parse(localStorage.getItem('state')).counter;
         return (
             <PathImg to="/cart">
                 <Icon src='../images/icons/bug.svg' alt='bug'/>
