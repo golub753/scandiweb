@@ -11,8 +11,3 @@ export const Title = styled.h1`
     color: #1D1F22;
     margin-bottom: 103px;
 `
-
-export const Orders = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-`

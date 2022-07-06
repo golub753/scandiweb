@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Blocks = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+`
+
 export const Block = styled.div`
     padding: 24px 0;
     border-bottom: 1px solid #E5E5E5;
