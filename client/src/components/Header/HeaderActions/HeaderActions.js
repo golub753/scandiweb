@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Actions, CurrencyBlock, CurrencyTrigger, Currency, Arrow, Currencies, CurrenciesBlock, CurrenciesBlockWrapper, CurrenciesText } from "../HeaderComponents/HeaderComponents";
 import HeaderBug from '../HeaderBug/HeaderBug';
+import HeaderOrders from "../HeaderOrders/HeaderOrders";
 import { connect } from "react-redux";
 import { changeInitialCurrencyAction } from '../../../store/initialCurrencyReducer';
 
@@ -51,6 +52,7 @@ class HeaderActions extends Component {
                     </Currencies>
                 </CurrencyBlock>
                 <HeaderBug/>
+                <HeaderOrders/>
             </Actions>
         )
     }

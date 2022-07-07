@@ -9,6 +9,7 @@ import { getAllTechAction } from '../store/techReducer';
 import { getAllCurrencyAction } from "../store/currencyReducer";
 import { getInitialCurrencyAction } from '../store/initialCurrencyReducer';
 import Header from "./Header/Header";
+import Overlay from "./Overlay/Overlay";
 import Home from '../pages/Home';
 import Clothes from '../pages/Clothes';
 import Tech from '../pages/Tech';
@@ -33,6 +34,7 @@ class App extends Component {
     return(
       <Router>
         <Header/>
+        <Overlay/>
         <Routes>
           <Route exact path="/" element={<Home category="allProducts"/>}/>
           <Route path="all" element={<Home category="allProducts"/>}/>

@@ -4,6 +4,8 @@ import { NavLink as Link } from "react-router-dom";
 export const Wrapper = styled.div`
     background: #FFFFFF;
     padding: 24px 0 0;
+    z-index: 21;
+    position: relative;
 `
 
 export const FlexBlock = styled.div`
@@ -60,9 +62,10 @@ export const Path = styled(Link)`
     }
 `
 
-export const PathImg = styled(Link)`
+export const PathImg = styled.div`
     text-decoration: none;
     position: relative;
+    cursor: pointer;
 `
 
 export const OrdersLength = styled.div`
@@ -101,6 +104,7 @@ export const Actions = styled.div`
     align-items: center;
     justify-content: flex-end;
     grid-column-gap: 22px;
+    position: relative;
 `
 
 export const CurrencyBlock = styled.div`
