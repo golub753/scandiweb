@@ -7,12 +7,12 @@ class ProductVarient extends Component {
         return (
         <Check style={{position: "relative"}}>
             {(this.props.value.indexOf('#') > -1) ? <>
-                <InputColor id={this.props.index} name={this.props.title} type="radio" defaultChecked={this.props.check} bg={this.props.value}/>
+                <InputColor id={this.props.index} name={this.props.title} type="radio" defaultChecked={this.props.check} onChange={() => this.props.getActiveAttribute(this.props.title, this.props.value)}/>
                 <LabelColor htmlFor={this.props.index} style={{backgroundColor: this.props.value}}/>
             </>
             : 
             <>
-            <Input defaultChecked={this.props.check} id={thisId} name={this.props.title} type="radio" value={this.props.value}/>
+            <Input defaultChecked={this.props.check} onChange={() => this.props.getActiveAttribute(this.props.title, this.props.value)} id={thisId} name={this.props.title} type="radio" value={this.props.value}/>
                 <Label htmlFor={thisId}>
                     {this.props.value}
                 </Label>

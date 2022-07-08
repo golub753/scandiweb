@@ -5,6 +5,7 @@ import Order from "./Order";
 
 class Orders extends Component {
     render() { 
+        console.log(this.props);
         return (
             <>
                 {(this.props.orders.orders.length > 0) ?

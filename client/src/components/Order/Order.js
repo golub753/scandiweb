@@ -1,7 +1,8 @@
 import { Component } from "react";
-import {Block, Wrapper, OrderInfo, Name, Brand, Price, Preview, Img, Controller, Counter, Contr, Icon} from './OrderComponents/OrderComponents';
+import {Block, Wrapper, OrderInfo, Name, Brand, Price, Preview, Img, Controller, Counter, Contr, Icon, Title, Attributes} from './OrderComponents/OrderComponents';
 import { connect } from "react-redux";
 import { incrementAction, decrementAction } from "../../store/ordersReducer";
+import OrderVarient from "./OrderVarient/OrderVarient";
 
 class Order extends Component {
     constructor(props){
@@ -24,6 +25,29 @@ class Order extends Component {
                         <Price>
                             {initialCurrency.symbol}{findCurrency.amount * item.counter}
                         </Price>
+                        {item.attributes.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <Title>
+                                        {item.name}:
+                                    </Title>
+                                    <Attributes>
+                                        {item.items.map((attr, id) => {
+                                            return (
+                                                <OrderVarient
+                                                    name={item.name}
+                                                    attributes={this.props.item.attributes}
+                                                    item={attr}
+                                                    checkedAttributes={this.props.item.checkedAttributes}
+                                                    id={index}
+                                                    key={id}
+                                                />
+                                            )
+                                        })}
+                                    </Attributes>
+                                </div>
+                            )
+                        })}
                     </OrderInfo>
                     <Preview>
                         <Controller>

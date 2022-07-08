@@ -4,7 +4,7 @@ import { PathImg, Img } from "../HeaderComponents/HeaderComponents";
 class HeaderHome extends Component{
     render() {
         return(
-            <PathImg to="/">
+            <PathImg>
                 <Img src="../images/icons/logo.svg" alt="logo"/>
             </PathImg>
         )

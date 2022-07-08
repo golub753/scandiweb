@@ -85,3 +85,57 @@ export const Contr = styled.button`
 `
 
 export const Icon = styled.img``
+
+export const Title = styled.div`
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+    color: #1D1F22;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+`
+
+export const Attributes = styled.div`
+    display: flex;
+    align-items: center;
+    grid-column-gap: 8px;
+`
+
+export const Check = styled.div`
+    width: 63px;
+    height: 45px;
+    background: ${props => props.checked ? '#1D1F22' : '#FFFFFF'};
+    border: 1px solid #1D1F22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    color: ${props => props.checked ? '#FFFFFF' : '#1D1F22'};
+`
+
+export const CheckColor = styled.div`
+    width: 32px;
+    height: 32px;
+    background: ${props => props.bg};
+    position: relative;
+    ::after {
+        display: ${props => props.checked ? 'block' : 'none'};
+        position: absolute;
+        content: '';
+        width: 36px;
+        height: 36px;
+        top: -3px;
+        right: -2px;
+        left: -3px;
+        bottom: -2px;
+        border: 1px solid #5ECE7B;
+        transition: .3s;
+    }
+`

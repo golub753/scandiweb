@@ -121,7 +121,7 @@ export const InputColor = styled.input`
         left: -3px;
         bottom: -2px;
         display: block;
-        border: 1px solid ${props => props.bg};
+        border: 1px solid #5ECE7B;
         transition: .3s;
     }
     }   
