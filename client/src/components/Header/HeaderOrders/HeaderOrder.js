@@ -1,7 +1,8 @@
 import { Component } from "react";
-import { Block, Info, Title, Img, Controller, Counter, Contr, Icon, Price } from "./HeaderOrdersComponents/HeaderOrdersComponents";
+import { Block, Info, Title, Img, Controller, Counter, Contr, Icon, Price, Subtitle, Checks } from "./HeaderOrdersComponents/HeaderOrdersComponents";
 import { connect } from "react-redux";
 import { incrementAction, decrementAction } from "../../../store/ordersReducer";
+import HeaderOrdersVarient from "./HeaderOrdersVarient";
 
 class HeaderOrder extends Component {
     render() { 
@@ -16,6 +17,29 @@ class HeaderOrder extends Component {
                     <Price>
                         {initialCurrency.symbol}{findCurrency.amount * item.counter}
                     </Price>
+                    {item.attributes.map((item, index) => {
+                            return (
+                                <div key={index}>
+                                    <Subtitle>
+                                        {item.name}:
+                                    </Subtitle>
+                                    <Checks>
+                                        {item.items.map((attr, id) => {
+                                            return (
+                                                <HeaderOrdersVarient
+                                                    name={item.name}
+                                                    attributes={this.props.item.attributes}
+                                                    item={attr}
+                                                    checkedAttributes={this.props.item.checkedAttributes}
+                                                    id={index}
+                                                    key={id}
+                                                />
+                                            )
+                                        })}
+                                    </Checks>
+                                </div>
+                            )
+                        })}
                 </Info>
                 <Controller>
                     <Contr onClick={() => this.props.increment(item)}>

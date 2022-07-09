@@ -170,3 +170,57 @@ export const Total = styled.div`
     color: #1D1F22;
     margin-bottom: 32px;
 `
+
+export const Subtitle = styled.div`
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #1D1F22;
+    margin-bottom: 8px;
+`
+
+export const CheckBug = styled.div`
+    width: fit-content;
+    padding: 0 5px;
+    height: 24px;
+    background: ${props => props.checked ? '#1D1F22' : '#FFFFFF'};
+    border: 1px solid #1D1F22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    color: #1D1F22;
+    color: ${props => props.checked ? '#FFFFFF' : '#1D1F22'};
+`
+
+export const CheckBugColor = styled.div`
+    width: 16px;
+    height: 16px;
+    background: ${props => props.bg};
+    position: relative;
+    ::after {
+        display: ${props => props.checked ? 'block' : 'none'};
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 20px;
+        top: -3px;
+        right: -2px;
+        left: -3px;
+        bottom: -2px;
+        border: 1px solid #5ECE7B;
+        transition: .3s;
+    }
+`
+
+export const Checks = styled.div`
+    display: flex;
+    align-items: center;
+    grid-column-gap: 8px;
+`
