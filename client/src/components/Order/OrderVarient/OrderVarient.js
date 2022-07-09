@@ -13,7 +13,7 @@ class OrderVarient extends Component {
                 {(this.props.name === 'Color') ? 
                 <CheckColor checked={(this.props.item.value === find[this.props.id].value) ? true : false} bg={this.props.item.value}/>
                 :
-                <Check checked={(this.props.item.value === (find[this.props.id] ? find[this.props.id].value : false)) ? true : false}>
+                <Check checked={(this.props.item.value === (find[this.props.id] ? find[this.props.id].value : (find[0].name === this.props.name) ? find[0].value : false)) ? true : false}>
                     {this.props.item.value}
                 </Check>}
             </>
