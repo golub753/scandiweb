@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Blocks = styled.div`
     display: grid;
     grid-template-columns: 1fr;
+    margin-bottom: 32px;
 `
 
 export const Block = styled.div`
@@ -138,4 +139,50 @@ export const CheckColor = styled.div`
         border: 1px solid #5ECE7B;
         transition: .3s;
     }
+`
+
+export const End = styled.div`
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 8px;
+    margin-bottom: 16px;
+`
+
+export const Row = styled.div`
+    display: flex;
+    align-items: center;
+    grid-column-gap: 10px;
+    grid-template-columns: 120px fit-content;
+`
+
+export const Text = styled.div`
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #1D1F22;
+`
+
+export const Num = styled.div`
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    color: #1D1F22;
+`
+
+export const Button = styled.button`
+    width: 279px;
+    height: 43px;
+    background: #5ECE7B;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
 `
