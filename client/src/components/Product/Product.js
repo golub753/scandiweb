@@ -1,10 +1,11 @@
 import { Component } from "react";
 import Container from '../../containers/Container';
-import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Cost, Checks, Button, Description } from "./ProductComponents/ProductComponents";
+import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Checks, Button, Description, ImagesWrapper } from "./ProductComponents/ProductComponents";
 import ProductVarient from "./ProductVarient/ProductVarient";
 import { connect } from 'react-redux';
 import ProductCost from "./ProductCost/ProductCost";
 import { addOrderAction } from "../../store/ordersReducer";
+import ProductSlider from "../ProductSlider/ProductSlider";
 
 class Product extends Component {
     constructor(props) {
@@ -23,7 +24,8 @@ class Product extends Component {
                 counter: 1,
                 images: this.product.gallery,
                 checkedAttributes: []
-            }
+            },
+            image: this.product.gallery[0]
         }
     }
     addOrder(product) {
@@ -57,7 +59,14 @@ class Product extends Component {
             <ProductWrapper>
                 <Container>
                     <Wrapper>
-                        <Image src={this.product.gallery[0]}/>
+                    {(this.product.gallery.length > 1) ? 
+                        <ImagesWrapper>
+                            <ProductSlider items={this.product.gallery}/>
+                            <Image src={this.state.image}/>
+                        </ImagesWrapper>
+                        :
+                        <Image src={this.state.image}/>
+                    }
                         <Info>
                             <Brand>
                                 {this.product.brand}

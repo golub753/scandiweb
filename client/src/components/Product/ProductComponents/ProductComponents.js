@@ -166,3 +166,9 @@ export const Description = styled.div`
     line-height: 159.96%;
     color: #1D1F22;
 `
+
+export const ImagesWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 79px 1fr;
+    grid-column-gap: 40px;
+`
