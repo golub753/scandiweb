@@ -3,6 +3,7 @@ import {Block, Wrapper, OrderInfo, Name, Brand, Price, Preview, Img, Controller,
 import { connect } from "react-redux";
 import { incrementAction, decrementAction } from "../../store/ordersReducer";
 import OrderVarient from "./OrderVarient/OrderVarient";
+import Slider from "../Slider/Slider";
 
 class Order extends Component {
     constructor(props){
@@ -61,7 +62,11 @@ class Order extends Component {
                                 <Icon src="../images/icons/decrement.svg" alt="decrement"/>
                             </Contr>
                         </Controller>
-                        <Img src={item.photo} alt={item.name}/>
+                        {(item.images.length > 1) ? 
+                            <Slider items={item.images}/>
+                            : 
+                            <Img src={item.photo} alt={item.name}/>
+                        }
                     </Preview>
                 </Wrapper>
             </Block>

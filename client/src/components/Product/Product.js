@@ -21,6 +21,7 @@ class Product extends Component {
                 attributes: this.product.attributes,
                 prices: this.product.prices,
                 counter: 1,
+                images: this.product.gallery,
                 checkedAttributes: []
             }
         }
@@ -82,9 +83,7 @@ class Product extends Component {
                             })}
                             <ProductCost product={this.product}/>
                             <Button onClick={() => this.addOrder(this.state.product)}>ADD TO CART</Button>
-                            <Description>
-                                {this.product.description}
-                            </Description>
+                            <Description dangerouslySetInnerHTML={{__html: `${this.product.description}`}}/>
                         </Info>
                     </Wrapper>
  
