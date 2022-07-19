@@ -4,23 +4,23 @@ import HeaderBug from '../HeaderBug/HeaderBug';
 import HeaderOrders from "../HeaderOrders/HeaderOrders";
 import { connect } from "react-redux";
 import { changeInitialCurrencyAction } from '../../../store/initialCurrencyReducer';
+import { toggleCurrencyStateAction, toggleOverlayAction } from "../../../store/bugReducer";
 
 class HeaderActions extends Component {
     constructor(props) {
         super(props)
         this.openCurrencies = this.openCurrencies.bind(this);
         this.changeInitialCurrencies = this.changeInitialCurrencies.bind(this);
-        this.state = {
-            open: false
-        }
     }
     openCurrencies() {
-        (this.state.open) ? this.setState({open: false}) : this.setState({open: true});
+        this.props.toggleState();
+        this.props.toggleOverlay();
     }
     changeInitialCurrencies(symbol) {
         const newInitialCurrencies = this.props.currency.currencies.find((item) => item.symbol === symbol)
         this.props.changeCurrency(newInitialCurrencies);
-        (this.state.open) ? this.setState({open: false}) : this.setState({open: true});
+        this.props.toggleState();
+        this.props.toggleOverlay();
     }
     render() {
         const currency = this.props.currency;
@@ -32,9 +32,9 @@ class HeaderActions extends Component {
                         <Currency>
                             {(initialCurrency) ? initialCurrency.symbol : false}
                         </Currency>
-                        <Arrow src="../images/icons/arrow.svg" alt="arrow" isOpen={this.state.open}/>
+                        <Arrow src="../images/icons/arrow.svg" alt="arrow" isOpen={this.props.toggler}/>
                     </CurrencyTrigger>
-                    <Currencies isOpen={this.state.open}>
+                    <Currencies isOpen={this.props.toggler}>
                         {(currency.currencies) ? currency.currencies.map((item, id) => {
                             return (
                                 <CurrenciesBlock key={id} onClick={() => this.changeInitialCurrencies(item.symbol)}>
@@ -62,15 +62,18 @@ class HeaderActions extends Component {
 const mapStateToProps = (state) => { 
     return {
         ...state.currency,
-        ...state.initialCurrency
+        ...state.initialCurrency,
+        ...state.bug,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeCurrency: (currency) => dispatch(changeInitialCurrencyAction(currency))
+        changeCurrency: (currency) => dispatch(changeInitialCurrencyAction(currency)),
+        toggleState: () => dispatch(toggleCurrencyStateAction()),
+        toggleOverlay: () => dispatch(toggleOverlayAction())
     }
 }
-
+ 
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderActions);

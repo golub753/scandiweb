@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import ProductCost from "./ProductCost/ProductCost";
 import { addOrderAction } from "../../store/ordersReducer";
 import ProductSlider from "../ProductSlider/ProductSlider";
+import ReactHtmlParser from 'react-html-parser';
 
 class Product extends Component {
     constructor(props) {
@@ -92,7 +93,9 @@ class Product extends Component {
                             })}
                             <ProductCost product={this.product}/>
                             <Button onClick={() => this.addOrder(this.state.product)}>ADD TO CART</Button>
-                            <Description dangerouslySetInnerHTML={{__html: `${this.product.description}`}}/>
+                            <Description>
+                                {ReactHtmlParser(this.product.description)}
+                            </Description>
                         </Info>
                     </Wrapper>
  

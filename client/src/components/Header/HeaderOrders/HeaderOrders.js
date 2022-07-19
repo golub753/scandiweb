@@ -2,18 +2,24 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { Main, Wrapper, Buttons, View, Check, MyBag, Items, Orders, Total } from "./HeaderOrdersComponents/HeaderOrdersComponents";
 import HeaderOrder from "./HeaderOrder";
-import { toggleBugStateAction } from '../../../store/bugReducer';
+import { toggleBugStateAction, toggleOverlayAction } from '../../../store/bugReducer';
 
 class HeaderOrders extends Component {
     constructor(props) {
         super(props)
+    
+        this.toggleBug = this.toggleBug.bind(this);
+    }
+    toggleBug() {
+        this.props.toggleState();
+        this.props.toggleOverlay();
     }
     render() { 
         const orders = this.props.orders.orders;
         const initialCurrency = this.props.initialCurrency;
-        const total = orders.reduce((sum, item) => sum += item.prices[0].amount,0)
+        const total = orders.reduce((sum, item) => sum += item.prices[0].amount,0);
         return (
-            <Main active={this.props.active}>
+            <Main active={this.props.bug}>
                 <Wrapper>
                     {(orders.length > 0) ? 
                     <>
@@ -43,8 +49,8 @@ class HeaderOrders extends Component {
                     : <p>No orders, please, choose product in catalog.</p>
                     }
                     <Buttons>
-                        <View to='/cart' onClick={() => this.props.toggleState()}>View bag</View>
-                        <Check onClick={() => this.props.toggleState()}>CHECK OUT</Check>
+                        <View to='/cart' onClick={() => this.toggleBug()}>View bag</View>
+                        <Check onClick={() => this.toggleBug()}>CHECK OUT</Check>
                     </Buttons>
                 </Wrapper>
             </Main>
@@ -54,7 +60,8 @@ class HeaderOrders extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      toggleState: () => dispatch(toggleBugStateAction())
+      toggleState: () => dispatch(toggleBugStateAction()),
+      toggleOverlay: () => dispatch(toggleOverlayAction())
     }
   }
 
