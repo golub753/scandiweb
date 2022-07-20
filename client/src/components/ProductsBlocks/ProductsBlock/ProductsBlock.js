@@ -3,9 +3,6 @@ import { Block, BlockWrapper ,Image, Info, Name, Price, Button, Cart } from '../
 import { connect } from "react-redux";
 
 class ProductsBlock extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() { 
         const initialCurrency = this.props.initialCurrency;
         const findCurrency = this.props.prices.find(item => item.currency.symbol === initialCurrency.symbol);
@@ -18,7 +15,7 @@ class ProductsBlock extends Component {
                             {this.props.name}
                         </Name>
                         <Price>
-                            {initialCurrency.symbol}{(findCurrency) ? findCurrency.amount : false}
+                            {initialCurrency.symbol}{(findCurrency) ? +(findCurrency.amount).toFixed(2) : false}
                         </Price>
                     </Info>
                     <Button data-stock={this.props.inStock} to={`/product/${this.props.id}`}>

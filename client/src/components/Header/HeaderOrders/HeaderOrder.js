@@ -15,7 +15,7 @@ class HeaderOrder extends Component {
                     <Title>{item.name}</Title>
                     <Title>{item.brand}</Title>
                     <Price>
-                        {initialCurrency.symbol}{findCurrency.amount * item.counter}
+                        {initialCurrency.symbol}{(findCurrency.amount).toFixed(2)}
                     </Price>
                     {item.attributes.map((item, index) => {
                             return (

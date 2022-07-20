@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 
 
 class HeaderLinks extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() {
         const links = this.props.links.map((item, id) => item.name);
         return(

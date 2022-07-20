@@ -4,9 +4,6 @@ import { Wrapper } from "./ProductsComponents/ProductsComponents";
 import { connect } from "react-redux";
 
 class ProductsBlocks extends Component {
-    constructor(props) {
-        super(props)
-    }
     render() { 
         const products = (this.props.category === 'allProducts')
         ? this.props.allProducts

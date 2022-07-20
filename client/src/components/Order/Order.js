@@ -6,9 +6,6 @@ import OrderVarient from "./OrderVarient/OrderVarient";
 import Slider from "../Slider/Slider";
 
 class Order extends Component {
-    constructor(props){
-        super(props)
-    }
     render() { 
         const item = this.props.item;
         const initialCurrency = this.props.initialCurrency;
@@ -24,7 +21,7 @@ class Order extends Component {
                             {item.name}
                         </Name>
                         <Price>
-                            {initialCurrency.symbol}{findCurrency.amount * item.counter}
+                            {initialCurrency.symbol}{(findCurrency.amount).toFixed(2)}
                         </Price>
                         {item.attributes.map((item, index) => {
                             return (

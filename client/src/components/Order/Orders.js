@@ -35,7 +35,7 @@ class Orders extends Component {
                             </Row>
                             <Row>
                                 <Text>Total:</Text>
-                                <Num>{initialCurrency.symbol}{total}</Num>
+                                <Num>{initialCurrency.symbol}{(total).toFixed(2)}</Num>
                             </Row>
                         </End>
                         <Button>ORDER</Button>

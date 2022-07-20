@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { Li, Path } from "../HeaderComponents/HeaderComponents";
+import { connect } from 'react-redux';
+import { closeTogglersAction } from '../../../store/bugReducer';
 
 class HeaderLink extends Component {
     constructor(props) {
@@ -10,10 +12,17 @@ class HeaderLink extends Component {
     render() {
         return(
             <Li>
-                <Path to={this.link}>{this.text}</Path>
+                <Path to={this.link} onClick={() => this.props.closeTogglers()}>{this.text}</Path>
             </Li>
         )
     }
 }
 
-export default HeaderLink;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        closeTogglers: () => dispatch(closeTogglersAction())
+    }
+}
+ 
+
+export default connect(null, mapDispatchToProps)(HeaderLink);

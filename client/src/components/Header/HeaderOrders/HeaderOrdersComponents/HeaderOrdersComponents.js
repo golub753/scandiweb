@@ -14,6 +14,8 @@ export const Main = styled.div`
 
 export const Wrapper = styled.div`
     padding: 32px 16px;
+    max-height: 462px;
+    overflow: auto;
 `
 
 export const Buttons = styled.div`
