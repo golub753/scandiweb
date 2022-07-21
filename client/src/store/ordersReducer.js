@@ -13,10 +13,23 @@ export const ordersReducer = (state = defaultState, action) => {
             const inBasket = state.orders.find(order => (order.id === action.payload.id));
             state.counter++;
             if (inBasket) {
+                if (action.payload.checkedAttributes.length < 1) {
+                    const firstAttr = action.payload.attributes.map((item, index) => {
+                        return {name: item.name,value: item.items[0].value}
+                    });
+                    inBasket.checkedAttributes = firstAttr;
+                }
                 inBasket.counter++;
                 localStorage.setItem('state', JSON.stringify({...state, counter: state.counter}));
                 return {...state, counter: state.counter};
             } else {
+                
+                if (action.payload.checkedAttributes.length < 1) {
+                    const firstAttr = action.payload.attributes.map((item, index) => {
+                        return {name: item.name,value: item.items[0].value}
+                    });
+                    action.payload.checkedAttributes = firstAttr;
+                }
                 localStorage.setItem('state', JSON.stringify({...state, orders: [...state.orders, action.payload], counter: state.counter}));
                 return {...state, orders: [...state.orders, action.payload], counter: state.counter}
             }
