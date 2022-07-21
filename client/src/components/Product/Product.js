@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Container from '../../containers/Container';
-import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Checks, Button, Description, ImagesWrapper } from "./ProductComponents/ProductComponents";
+import { ProductWrapper, Wrapper, Image, Info, Brand, Name, Title, Checks, Button, Description, ImagesWrapper, NoProduct } from "./ProductComponents/ProductComponents";
 import ProductVarient from "./ProductVarient/ProductVarient";
 import { connect } from 'react-redux';
 import ProductCost from "./ProductCost/ProductCost";
@@ -92,7 +92,13 @@ class Product extends Component {
                                 )
                             })}
                             <ProductCost product={this.product}/>
-                            <Button onClick={() => this.addOrder(this.state.product)}>ADD TO CART</Button>
+                            {(this.product.inStock) ? 
+                                <Button onClick={() => this.addOrder(this.state.product)}>ADD TO CART</Button>
+                                : <NoProduct>
+                                    Out Of Stock
+                                </NoProduct>
+                            }
+                            
                             <Description>
                                 {ReactHtmlParser(this.product.description)}
                             </Description>

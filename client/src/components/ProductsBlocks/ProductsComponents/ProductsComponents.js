@@ -9,13 +9,14 @@ export const Wrapper = styled.div`
     grid-row-gap: 103px;
 `
 
-export const Block = styled.div`
+export const Block = styled(Link)`
     position: relative;
     background: #FFFFFF;
     transition: .3s;
+    text-decoration: none;
     :hover {
         box-shadow: ${props => props['data-stock'] ? '0px 4px 35px rgba(168, 172, 176, 0.19)' : 'none'};
-        A {
+        Div {
             opacity: 1;
         }
     }
@@ -56,7 +57,7 @@ export const BlockWrapper = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: 330px;
-    object-fit: cover;
+    object-fit: contain;
 `
 
 export const Info = styled.div`
@@ -76,7 +77,7 @@ export const Price = styled.div`
     color: #1D1F22;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.div`
     width: 52px;
     height: 52px;
     display: ${props => props['data-stock'] ? 'flex' : 'none'};

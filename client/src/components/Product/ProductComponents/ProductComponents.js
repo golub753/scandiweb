@@ -172,3 +172,15 @@ export const ImagesWrapper = styled.div`
     grid-template-columns: 79px 1fr;
     grid-column-gap: 40px;
 `
+
+export const NoProduct = styled.div`
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 27px;
+    text-align: center;
+    line-height: 159.96%;
+    text-transform: uppercase;
+    color: #1D1F22;
+    margin: 15px 0;
+`
