@@ -12,19 +12,31 @@ export const ordersReducer = (state = defaultState, action) => {
         case ADD_ORDER: {
             const inBasket = state.orders.find(order => (order.id === action.payload.id));
             state.counter++;
+            console.log('first');
             if (inBasket) {
+                console.log('inBasket');
                 if (action.payload.checkedAttributes.length < 1) {
+                    console.log('not checked');
                     const firstAttr = action.payload.attributes.map((item, index) => {
                         return {name: item.name,value: item.items[0].value}
                     });
-                    inBasket.checkedAttributes = firstAttr;
+                    action.payload.checkedAttributes = firstAttr;
                 }
-                inBasket.counter++;
-                localStorage.setItem('state', JSON.stringify({...state, counter: state.counter}));
-                return {...state, counter: state.counter};
+                if (JSON.stringify(inBasket.checkedAttributes) === JSON.stringify(action.payload.checkedAttributes)) {
+                    console.log('checked ===');
+                    inBasket.counter++;
+                    localStorage.setItem('state', JSON.stringify({...state, counter: state.counter}));
+                    return {...state, counter: state.counter};
+                } else {
+                    console.log('checked !===');
+                    inBasket.counter++;
+                    localStorage.setItem('state', JSON.stringify({...state, orders: [...state.orders, action.payload], counter: state.counter}));
+                    return {...state, orders: [...state.orders, action.payload], counter: state.counter}
+                }
             } else {
-                
+                console.log('not in Baskter');
                 if (action.payload.checkedAttributes.length < 1) {
+                    console.log('not in basket checked');
                     const firstAttr = action.payload.attributes.map((item, index) => {
                         return {name: item.name,value: item.items[0].value}
                     });

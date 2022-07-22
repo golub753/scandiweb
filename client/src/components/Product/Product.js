@@ -7,6 +7,7 @@ import ProductCost from "./ProductCost/ProductCost";
 import { addOrderAction } from "../../store/ordersReducer";
 import ProductSlider from "../ProductSlider/ProductSlider";
 import ReactHtmlParser from 'react-html-parser';
+import { v4 } from 'uuid';
 
 class Product extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Product extends Component {
         this.getActiveAttribute = this.getActiveAttribute.bind(this);
         this.state = {
             product: {
-                id: this.product.id,
+                id: this.id,
                 name: this.product.name,
                 brand: this.product.brand,
                 photo: this.product.gallery[0],

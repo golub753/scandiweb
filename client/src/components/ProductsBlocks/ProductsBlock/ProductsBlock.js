@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Block, BlockWrapper ,Image, Info, Name, Price, Button, Cart } from '../ProductsComponents/ProductsComponents';
 import { connect } from "react-redux";
 import { addOrderAction } from '../../../store/ordersReducer';
+import { v4 } from 'uuid';
 
 class ProductsBlock extends Component {
     constructor(props) {
